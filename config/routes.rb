@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
-  get 'users/create'
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy.'
-  get 'session/new'
-  get 'session/create'
-  get 'session/destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users, except: [ :index ]  # don't create the index action or template
+
+#resources :users, except: [ :index ]  # don't create the index action or template
+resources :users # don't create the index action or template
+
+# Session routes for login/logut
+get    "/login" => "session#new"     # login form
+post   "/login" => "session#create"  # form submits here to perform login and set session
+delete "/login" => "session#destroy" # logout (delete session)
+
 end
