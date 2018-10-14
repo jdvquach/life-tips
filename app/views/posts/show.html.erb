@@ -1,0 +1,15 @@
+<h1>Showing selected tip/trick</h1>
+<p>
+ Title: <%= @post.title %>
+</p>
+<p>
+  Description: <%= @post.content %>
+
+</p>
+
+<p>
+  Image <%= @post.image %>
+</p>
+
+
+<strong><%= link_to @post.user.name, user_path(@post.user.id) %></strong>, 'Hi'

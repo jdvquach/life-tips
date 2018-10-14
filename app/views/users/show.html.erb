@@ -1,0 +1,23 @@
+<div>
+<h2><%= @user.name %></h2>
+
+<div>
+  <%= link_to 'Edit Account', edit_user_path(@user) %>
+  |
+  <%= link_to 'Delete Account', user_path(@user), method: 'delete' %>
+</div>
+<br>
+
+<strong>Name:</strong> <%= @user.name %><br>
+
+<div>
+
+  <h4>Your tips/tricks:</h4>
+  <ul>
+  <% @user.posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post_path(post.id) %>, <%= post.content %>
+    </li>
+  <% end %>
+  </ul>
+</div>

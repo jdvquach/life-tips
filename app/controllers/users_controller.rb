@@ -21,19 +21,27 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
   end
 
   def index
-      @users = User.all
-    end
+    @users = User.all
+  end
 
   def edit
+    @user = User.find params[:id]
   end
 
   def update
+    @user = User.find params[:id]   # route is PATCH "/members/:id", so we have the ID in params
+    @user.update user_params
+    redirect_to user_path(@user.id)
   end
 
   def destroy
+    @user = User.find params[:id]
+    @user.destroy
+    redirect_to( users_path )
   end
 
   private
