@@ -8,9 +8,9 @@
 User.destroy_all
 
 puts "Starting user load!"
-u1 = User.create name: 'Luke',email: 'luke@ga.co',password:'chicken'
-u2 = User.create name: 'Linna',email: 'linna@ga.co',password:'chicken'
-u3 = User.create name: 'John',email: 'john@ga.co',password:'chicken'
+u1 = User.create name: 'Luke',email: 'luke@ga.co',password:'chicken',image:  'https://fillmurray.com/200/300'
+u2 = User.create name: 'Linna',email: 'linna@ga.co',password:'chicken',image: 'https://fillmurray.com/200/300'
+u3 = User.create name: 'John',email: 'john@ga.co',password:'chicken',image: 'https://fillmurray.com/200/300'
 
 puts "Created #{User.all.length} users."
 
@@ -36,7 +36,7 @@ puts "Created #{Category.all.length} categories."
 Post.destroy_all
 puts "Starting post load!"
 p1 = Post.create title: 'Remove dog hair from laundry',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category: c1, user: u3
-p2 = Post.create title: 'Storing bananas',category: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category: c4, user: u3
+p2 = Post.create title: 'Storing bananas',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category: c4, user: u3
 p3 = Post.create title: 'Getting cheap music',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', category: c13, user: u3
 
 puts "Created #{Post.all.length} posts."

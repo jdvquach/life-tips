@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def check_if_logged_in
     unless @current_user.present?
+      
     flash[:error] = "You must login to view that page."
     redirect_to login_path
   end
