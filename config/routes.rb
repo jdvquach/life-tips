@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
@@ -11,6 +12,7 @@ get    "/login" => "session#new"     # login form
 post   "/login" => "session#create"  # form submits here to perform login and set session
 delete "/login" => "session#destroy" # logout (delete session)
 
-resources :posts
-
+resources :posts do
+resources :comments
+end
 end

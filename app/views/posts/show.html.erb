@@ -11,3 +11,9 @@
 <% if @current_user.present? && @post.user == @current_user  %>
 <%= link_to 'Edit Post', edit_post_path(@post) %>
 <% end  %>
+
+<!--Added for comments  -->
+<h3>Comments (<%= @post.comments.size %>)</h3>
+
+<%= render partial: 'comments/form'%>
+<%= render partial: 'posts/comment', collection: @post.comments.reverse %>
