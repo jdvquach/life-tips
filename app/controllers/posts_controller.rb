@@ -36,9 +36,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
-    #Added below for comments
     @comment = Comment.new
     @comment.post_id = @post.id
+    @comment.save
   end
 
   # UPDATE

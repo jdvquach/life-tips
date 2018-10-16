@@ -16,3 +16,29 @@ div,h1,ul {
   text-align: center;
   list-style-type: none;
 }
+
+p, h3, h4 {
+
+  color: white;
+}
+
+hr {
+
+  background-color: white;
+}
+
+h4 {
+ color: red;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+a:active {
+  background-color: black;
+}
+
+a:visited {
+  background-color: #ccc;
+}

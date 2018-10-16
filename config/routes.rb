@@ -12,7 +12,7 @@ get    "/login" => "session#new"     # login form
 post   "/login" => "session#create"  # form submits here to perform login and set session
 delete "/login" => "session#destroy" # logout (delete session)
 
-resources :posts do
+resources :posts
 resources :comments
-end
+
 end

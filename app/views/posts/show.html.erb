@@ -1,6 +1,6 @@
 <h2><%= @post.title %></h2>
 <br>
-<%= @post.content %>
+<h4><%= @post.content %></h4>
 <hr>
 <% if @post.image.present? %>
 <%= image_tag @post.image, class: 'postTitle' %>
@@ -13,7 +13,7 @@
 <% end  %>
 
 <!--Added for comments  -->
-<h3>Comments (<%= @post.comments.size %>)</h3>
 
+<h3>Comments (<%= @post.comments.count - 1 %>) </h3>
 <%= render partial: 'comments/form'%>
-<%= render partial: 'posts/comment', collection: @post.comments.reverse %>
+<%= render partial: 'comments/comment', collection: @post.comments.reverse %>
