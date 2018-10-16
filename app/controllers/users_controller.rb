@@ -5,24 +5,30 @@ class UsersController < ApplicationController
   end
 
   def create
-      user = User.create user_params   # strong params
+      @user = User.create user_params   # strong params
 
-      if user.persisted?
+      if @user.persisted?
         # Account created successfully!
-        session[:user_id] = user.id   # Log in the new user!!
-        redirect_to user_path(user)   # go to the show page for this user
+        session[:user_id] = @user.id   # Log in the new user!!
+        #added next 4 lines for Cloudinary image upload
+        if params[:file].present?
+          response= Cloudinary::Uploader.upload params[:file]
+          @user.image = response["public_id"]
+          @user.save
+        end
+        redirect_to user_path(@user)   # go to the show page for this user
       else
         # Account not created: show error
 
         # Set a flash key to show on the next page: it will be an array of error strings
-        flash[:errors] = user.errors.full_messages
+        flash[:errors] = @user.errors.full_messages
         redirect_to new_user_path  # /users/new, show the form again (with errors)
       end
   end
 
   def show
     @user = User.find params[:id]
-    
+
   end
 
   def index
@@ -36,6 +42,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]   # route is PATCH "/members/:id", so we have the ID in params
     @user.update user_params
+    if params[:file].present?
+      response= Cloudinary::Uploader.upload params[:file]
+      @user.image = response["public_id"]
+      @user.save
+    end
     redirect_to user_path(@user.id)
   end
 
