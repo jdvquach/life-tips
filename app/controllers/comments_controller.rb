@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
   def create
-  @comment = Comment.new(comment_params)
+  @comment = Comment.create({name: params[:name], comment: params[:comment]})
   @comment.post_id = params[:post_id]
+  # raise "hell"
   @comment.save
 
-  redirect_to post_path(@comment)
+  redirect_to post_path(@comment.post)
 end
 
 # UPDATE

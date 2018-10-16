@@ -14,6 +14,18 @@
 
 <!--Added for comments  -->
 
-<h3>Comments (<%= @post.comments.count - 1 %>) </h3>
-<%= render partial: 'comments/form'%>
+<h3>Comments (<%= @post.comments.count %>) </h3>
+
+<%= form_tag comments_path do %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+    <br/>
+    <%= label_tag :comment %>
+    <%= text_area_tag :comment %>
+    <%= hidden_field_tag :post_id, "#{@post.id}" %>
+    <br>
+    <br>
+    <%= submit_tag 'Submit' %>
+  </p>
+<% end %>
 <%= render partial: 'comments/comment', collection: @post.comments.reverse %>
