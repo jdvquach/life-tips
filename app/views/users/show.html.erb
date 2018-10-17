@@ -16,11 +16,11 @@
 
 <div>
 
-  <h4>Your tips/tricks:</h4>
+  <h3>Your tips/tricks:</h3>
   <ul>
   <% @user.posts.each do |post| %>
     <li>
-      <%= link_to post.title, post_path(post.id) %>, <%= post.content %>
+      <%= link_to post.title, post_path(post.id) %>
     </li>
   <% end %>
   </ul>
