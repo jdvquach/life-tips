@@ -7,7 +7,7 @@ body {
   background-image: url('https://images.unsplash.com/photo-1526456671914-343acf062565?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=57760d904c1868da32fbf116732e39d7&auto=form');
   background-size: cover;
   height: 100%;
-  color: white;
+  color: white!important;
 
 
 }
@@ -15,6 +15,7 @@ body {
 div,h1,ul {
   text-align: center;
   list-style-type: none;
+  margin: 0 auto;
 }
 
 p, h3, h4 {
@@ -45,4 +46,14 @@ a:active {
 
 a:visited {
   background-color: #ccc;
+}
+
+li {
+
+  color: red;
+}
+
+img {
+
+  max-width: 30vw;
 }
