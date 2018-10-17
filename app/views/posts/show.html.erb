@@ -2,9 +2,11 @@
 <br>
 <h4><%= @post.content %></h4>
 <hr>
+<div>
 <% if @post.image.present? %>
 <%= image_tag @post.image, class: 'postTitle' %>
 <% end %>
+</div>
 <br>
 
 <!--Only show post for user login  -->

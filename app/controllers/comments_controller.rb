@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
   @comment = Comment.create({name: params[:name], comment: params[:comment]})
   @comment.post_id = params[:post_id]
-  # raise "hell"
+  #raise "hell"
   @comment.save
 
   redirect_to post_path(@comment.post)
@@ -16,7 +16,7 @@ end
     def update
 
       #@post = Post.find(params[:post_id])
-      @comment = Comment.find params[:id]   # route is PATCH "/members/:id", so we have the ID in params
+      @comment = Comment.find params[:id]   
       @comment.update comment_params
       redirect_to posts_path
     end
