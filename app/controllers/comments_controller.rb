@@ -3,7 +3,11 @@ class CommentsController < ApplicationController
   @comment = Comment.create({name: params[:name], comment: params[:comment]})
   @comment.post_id = params[:post_id]
   #raise "hell"
+
+  flash[:errors] = @comment.errors.full_messages
+
   @comment.save
+
 
   redirect_to post_path(@comment.post)
 end
@@ -16,7 +20,7 @@ end
     def update
 
       #@post = Post.find(params[:post_id])
-      @comment = Comment.find params[:id]   
+      @comment = Comment.find params[:id]
       @comment.update comment_params
       redirect_to posts_path
     end

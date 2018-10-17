@@ -1,12 +1,3 @@
-<% if flash[:errors].present?  %>
-   <strong>Please correct the following errors:</strong>
-   <ol>
-   <% flash[:errors].each do |error| %>
-     <li><%= error %></li>
-   <% end %>
-   </ol>
-<% end %>
-
 
 <%= form_for @post do |f| %>
   <p>

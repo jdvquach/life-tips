@@ -62,3 +62,5 @@ gem 'jquery-rails'
 
 gem 'cloudinary'
 gem 'bootstrap', '~> 4.1.3'
+
+gem 'rails_12factor'

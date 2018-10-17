@@ -1,5 +1,14 @@
 <h3>Post a Comment</h3>
 
+<% if flash[:errors].present?  %>
+   <strong>Please correct the following errors:</strong>
+   <ol>
+   <% flash[:errors].each do |error| %>
+     <li><%= error %></li>
+   <% end %>
+   </ol>
+<% end %>
+
 <%= form_for [ @post.comment ] do |f| %>
   <p>
     <%= f.label :name %><br/>
@@ -12,4 +21,15 @@
   <p>
     <%= f.submit 'Submit' %>
   </p>
+<% end %>
+
+<% if flash[:errors].present? %>
+
+  <strong>Please correct follwing errors:</strong>
+
+  <ol>
+  <%  flash[:errors].each do |error| %>
+  <li><%= error %><li>
+    <% end %>
+  </ol>
 <% end %>
