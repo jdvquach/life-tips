@@ -1,42 +1,61 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-
-puts "Starting user load!"
-u1 = User.create name: 'Luke',email: 'luke@ga.co',password:'chicken',image:  'https://fillmurray.com/200/300'
-u2 = User.create name: 'Linna',email: 'linna@ga.co',password:'chicken',image: 'https://fillmurray.com/200/300'
-u3 = User.create name: 'John',email: 'john@ga.co',password:'chicken',image: 'https://fillmurray.com/200/300'
-
-puts "Created #{User.all.length} users."
-
-
-Category.destroy_all
-puts "Starting category load!"
-c1 = Category.create name: 'Pet'
-c2 = Category.create name: 'Household'
-c3 = Category.create name: 'Auto'
-c4 = Category.create name: 'Food'
-c5 = Category.create name: 'Eating Out'
-c6 = Category.create name: 'Finance'
-c7 = Category.create name: 'Shopping'
-c8 = Category.create name: 'Science'
-c9 = Category.create name: 'Travel'
-c10 = Category.create name: 'Electronics'
-c11 = Category.create name: 'Education'
-c12 = Category.create name: 'Fashion'
-c13 = Category.create name: 'Music'
-
-puts "Created #{Category.all.length} categories."
-
-Post.destroy_all
-puts "Starting post load!"
-p1 = Post.create title: 'Remove dog hair from laundry',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category: c1, user: u3
-p2 = Post.create title: 'Storing bananas',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', category: c4, user: u3
-p3 = Post.create title: 'Getting cheap music',content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', category: c13, user: u3
-
-puts "Created #{Post.all.length} posts."
+Category.create!([
+  {name: "Pet", image: nil},
+  {name: "Household", image: nil},
+  {name: "Auto", image: nil},
+  {name: "Food", image: nil},
+  {name: "Eating Out", image: nil},
+  {name: "Finance", image: nil},
+  {name: "Shopping", image: nil},
+  {name: "Science", image: nil},
+  {name: "Travel", image: nil},
+  {name: "Electronics", image: nil},
+  {name: "Education", image: nil},
+  {name: "Fashion", image: nil},
+  {name: "Music", image: nil}
+])
+Comment.create!([
+  {name: "Bradley Taylor, Adelaide", comment: "Turkey cupim sausage leberkas hamburger t-bone ball tip turducken jerky sirloin frankfurter drumstick pork chop cow. Chuck doner kielbasa venison, kevin prosciutto biltong short loin tri-tip. Ham ham hock prosciutto cupim chuck. Frankfurter kevin burgdoggen, pork belly shoulder porchetta sirloin picanha hamburger pork kielbasa.", post_id: 32},
+  {name: "Sue Wallace", comment: "Great work!", post_id: 32},
+  {name: "Bill Freeman", comment: "Jerky picanha doner andouille, pastrami ground round tongue pork belly shankle pork loin tenderloin turkey spare ribs pork flank. Short ribs pastrami ground round, drumstick kielbasa sirloin pancetta cow beef ribs alcatra tail bacon shoulder leberkas kevin. Pancetta chuck prosciutto biltong rump. Hamburger porchetta kevin swine pork loin t-bone tri-tip spare ribs. Pork chop kielbasa pastrami, ball tip chicken pork loin bacon.", post_id: 32},
+  {name: "Stanley Moorer", comment: "Doner turducken ball tip ham turkey. Andouille ball tip porchetta fatback landjaeger hamburger filet mignon kevin pancetta cow shoulder. Fatback venison salami chuck, t-bone pig tri-tip boudin frankfurter jowl. Shank tri-tip cupim, landjaeger frankfurter pig rump burgdoggen shankle beef sausage ball tip. Tongue chicken pig burgdoggen pork chop drumstick shoulder turkey alcatra tenderloin pork belly biltong ground round. Pig tri-tip brisket, chuck turkey ball tip salami short loin ground .", post_id: 38},
+  {name: "Paula Luns,Sydney", comment: "Doner turducken ball tip ham turkey. Andouille ball tip porchetta fatback landjaeger hamburger filet mignon kevin pancetta cow shoulder. Fatback venison salami chuck, t-bone pig tri-tip boudin frankfurter jowl. Shank tri-tip cupim, landjaeger frankfurter pig rump burgdoggen shankle beef sausage ball tip. Tongue chicken pig burgdoggen pork chop drumstick shoulder turkey alcatra tenderloin pork belly biltong ground round. Pig tri-tip brisket, chuck turkey ball tip salami short loin ground round ribeye hamburger pork belly capicola landjaeger beef.", post_id: 38},
+  {name: "Bill Freeman", comment: "Bacon ipsum dolor amet drumstick ribeye swine, pancetta picanha shankle leberkas pork tri-tip turducken sausage. Chuck pork belly biltong ham, fatback beef pastrami ribeye t-bone cow jowl leberkas landjaeger bacon jerky. Shankle buffalo ground round pastrami. Pastrami drumstick beef ham kevin porchetta ground round pork chop shankle corned beef boudin bacon pork. Tenderloin landjaeger frankfurter, shoulder boudin brisket venison short loin tongue hamburger turducken biltong.", post_id: 37},
+  {name: "Lily Smith, Victoria", comment: "Wow :)", post_id: 42},
+  {name: "Sue Wallace,Brisbane", comment: "Great idea!", post_id: 36},
+  {name: "David Farmer,UK", comment: "Salami leberkas short ribs, jerky cow brisket sirloin cupim landjaeger drumstick. Shoulder bresaola burgdoggen short ribs brisket sausage tongue pig cupim shank leberkas. Cupim flank boudin venison capicola frankfurter spare ribs cow. Bacon spare ribs bresaola cow, chicken short ribs hamburger biltong. Capicola sausage cupim, chuck landjaeger pancetta drumstick cow sirloin biltong shank.", post_id: 47},
+  {name: "test", comment: "hello", post_id: 34},
+  {name: "Test Name validation", comment: "Salami leberkas short ribs, jerky cow brisket sirloin cupim landjaeger drumstick. Shoulder bresaola burgdoggen short ribs brisket sausage tongue pig cupim shank leberkas. Cupim flank boudin venison capicola frankfurter spare ribs cow. Bacon spare ribs bresaola cow, chicken short ribs hamburger biltong. Capicola sausage cupim, chuck landjaeger pancetta drumstick cow sirloin biltong shank.", post_id: 32},
+  {name: "Wil,Tasmania", comment: "Good work!", post_id: 32}
+])
+Post.create!([
+  {title: "Smelly shoes", content: "If you have bad-smelling shoes, place a few dry tea bags inside each shoe to absorb the smell. If your shoes are not just smelly but also wet, fill them with a mixture of rice and baking soda and leave for a few days.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8452410-teabag-550397_960_720-1482511604-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "Tight shoes", content: "If your new shoes feel too tight, here’s a way to stretch them. Stuff each shoe with wet newspaper as tightly as you can. Let the shoes dry, and then remove the newspaper.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8452110-newspaper-943004_960_720-1482511723-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "Find small lost items", content: "Use your vacuum cleaner to find tiny items you’ve lost, such as earrings. Just cover the end of a vacuum cleaner with a stocking or pantyhose, and start your search. Check from time to time to see if the object you are looking for is already there.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452010-media-1482512259-650-0458c807cd-1483623278.jpg", user_id: 60},
+  {title: "Timed marked water bottle", content: "Here’s a great way to keep track of your daily water intake. Draw lines on your water bottle with a marker pen, and then write the time beside the marked level. The marking will serve as a visual reminder for you to drink water, and it will help you achieve your daily water intake requirement.", category_id: 180, image: "https://files.brightside.me/files/news/part_28/287960/8452710-agua-1482424731-650-61f50bc242-1483623278.jpg", user_id: 60},
+  {title: "Remove toilet bowl stains", content: "Pour a can of Coca-Cola into the toilet bowl, and let it sit overnight. Then wash it with soapy water, and flush clean.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452660-320px-Coca-Cola_Glas_mit_Eis-1482512476-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "Storing bananas", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", category_id: 180, image: "https://brooklynfarmgirl.com/wp-content/uploads/2018/07/How-To-Store-Bananas-7-605x390.jpg", user_id: 60},
+  {title: "", content: "no title!", category_id: nil, image: "", user_id: 60},
+  {title: "Dry your clothes faster", content: "If you don’t have a dryer and need to dry your .clothes quickly, here’s what you can do. Place your wet clothing on a dry towel. Roll the towel with the garment inside. Pick it up, and twist it as tightly as possible to squeeze out the excess water. After you’ve drained the excess water, hang your garment on a hanger to fully dry.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452460-trousers-362781_960_720-1482511404-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "body odor", content: "If you forgot to put on deodorant and you don’t want to smell like you’ve been at the gym, cut a fresh lemon or orange into two halves and just rub it onto your skin. The body odor will disappear.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452360-tangerines-1721633_960_720-1482513290-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "Getting cheap music", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", category_id: 189, image: nil, user_id: 60},
+  {title: "Fresh Breath", content: "If you left home and forgot to brush your teeth or you ran out of toothpaste, chewing an apple can help with bad breath.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8452060-mujer-mordiendo-una-manzana-verde_1187-1460-1482513520-650-15b60e2327-1483623278.jpg", user_id: 60},
+  {title: "Unclog drains easily", content: "Run hot water down the drain for a minute, and then sprinkle 1 cup of baking soda down the drain. Slowly pour 1 cup of vinegar down the drain. Flush one more time with hot or boiling water.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8451860-1280px-Baking_soda_and_vinegar-1482512566-650-9c7c13384d-1483623278.jpg", user_id: 60},
+  {title: "Citrus candles", content: "Do you want your house to smell good for hours? Make an orange or a lemon candle, and its light and aroma will last a long time. Learn how to do it here.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452160-oil-lamps-1753490_960_720-1482425145-650-32e9147584-1483623278.jpg", user_id: 60},
+  {title: "Clean the shower head", content: "To clean your shower head or bathroom faucets, fill a plastic bag with white vinegar and secure it to the shower head with a rubber band. Allow it to soak in the vinegar overnight, and remove the bag. It will be as good as new!", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8452810-vinegar-1482425367-650-cb01fafc8a-1483623278.jpg", user_id: 60},
+  {title: "Keep buttons from falling off", content: "To keep your buttons in place, simply paint a bit of clear nail polish over the threads.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8452760-barniz-1482512870-650-379ac66324-1483623278.jpg", user_id: 60},
+  {title: "Amplify your phone’s speakers", content: "Put your phone into a drinking glass or a bowl to boost the volume of its speakers.", category_id: 186, image: "https://files.brightside.me/files/news/part_28/287960/8452310-Smartphone_In_Glass-1482424992-650-121f7a2b36-1483623278.jpg", user_id: 60},
+  {title: "Make ice last longer in cooler", content: "When you go to the beach and take your cooler with you, sprinkle salt on the ice so that it stays frozen for much longer.", category_id: nil, image: "https://files.brightside.me/files/news/part_28/287960/8451960-hielera-1482513458-650-ca8df2efcf-1483623278.jpg", user_id: 60},
+  {title: "Open stuck lids", content: "You’ve probably heard numerous ways to open a stubborn jar lid. One of the most well-known and effective methods is to remove the lid using duct tape. But here’s what you can do if you don’t have duct tape on hand. Try running hot water over the lid for a minute or two, wipe down, and then open. You can also soak the lid in hot water to get a similar effect.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8451910-frascos_2869917-1482513813-650-6acb2ac950-1483623278.jpg", user_id: 60},
+  {title: "Wooden spoon trick", content: "This old trick never fails. To keep your pot from boiling over, put a wooden spoon over the top of it. If it starts to boil up too high, the spoon will pop the bubbles and keep it from overflowing quickly.", category_id: 180, image: "https://files.brightside.me/files/news/part_28/287960/8452610-cucharaolla-1482514223-650-e239594b90-1483623278.jpg", user_id: 60},
+  {title: "Open a SIM card tray when an ejector tool isn’t around", content: "Insert the small paperclip you bent earlier into the small pin hole opening in the SIM tray.", category_id: 186, image: "https://files.brightside.me/files/news/part_28/287960/11977060-9273560-Preview_228194-f-0-1488291432-1488291439-1410-1-1488291439-1488296941-650-aafbf8b0da-1488297358.jpg", user_id: 60},
+  {title: "Grow roses from cuttings", content: "Here’s a great tip for growing roses from cuttings. Before planting, push the bottom ends of the cuttings into small potatoes. Moisture and nutrients in the potatoes will allow the cuttings to develop healthy roots. Learn more here.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452260-rosas-1482510824-650-86182282fa-1483623278.jpg", user_id: 60},
+  {title: "Remove dog hair from laundry", content: "TEST Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", category_id: 177, image: "https://files.brightside.me/files/news/part_28/287960/8451860-1280px-Baking_soda_and_vinegar-1482512566-650-9c7c13384d-1483623278.jpg", user_id: 60},
+  {title: "Start a fire", content: "Chips are not just a tasty snack. Fat, oil, and the chemicals in potato (or other) chips make them a perfect fire-starting material.", category_id: 178, image: "https://files.brightside.me/files/news/part_28/287960/8452510-fotonoticia_20150619171409-15061348959_640-1483445182-650-c05cbf408b-1483623278.jpg", user_id: 60},
+  {title: "Store mushrooms", content: "Jerky picanha doner andouille, pastrami ground round tongue pork belly shankle pork loin tenderloin turkey spare ribs pork flank. Short ribs pastrami ground round, drumstick kielbasa sirloin pancetta cow beef ribs alcatra tail bacon shoulder leberkas kevin. Pancetta chuck prosciutto biltong rump. Hamburger porchetta kevin swine pork loin t-bone tri-tip spare ribs. Pork chop kielbasa pastrami, ball tip chicken pork loin bacon.", category_id: nil, image: "https://assets.bhg.com/bhg/styles/nfp_1080_portrait/public/images/2012/05/100889674.jpg?B12l_.71b9ivG.tHMxt_8PpV27uOGvoU", user_id: 59},
+  {title: "Waterproof canvas shoes", content: "To turn your canvas shoes into waterproof ones, you need nothing but beeswax and a blow dryer. Spread beeswax all over your shoes. Next, use the blow dryer to melt the beeswax until you can no longer see it. Voila! Your waterproof shoes are ready!", category_id: 188, image: "https://files.brightside.me/files/news/part_28/287960/8452560-bee-996399_960_720-1482422626-650-32e9147584-1483623278.jpg", user_id: 60}
+])
+User.create!([
+  {name: "Luke", email: "luke@ga.co", password_digest: "$2a$10$OdJFFqYKGKWKOvXmIHRIVOq8wGjTDzOCpRWhxV0SqmUGo2aXRDSNa", image: "https://fillmurray.com/200/300"},
+  {name: "Linna", email: "linna@ga.co", password_digest: "$2a$10$/D/m6SPdn98L6bxuElos8.jFDqpEYySbXGhgJv5YckYRKsfa83wA6", image: "https://fillmurray.com/200/300"},
+  {name: "John", email: "john@ga.co", password_digest: "$2a$10$2AX.kZ0UZNIAu5j/9n9Oc.y0n7dhYNx4Ffef7jjG8LRZaJc/cCwGq", image: "udxgakg27z9ft2uzboz2"}
+])
