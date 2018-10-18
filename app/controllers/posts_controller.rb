@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.persisted?
       redirect_to posts_path # redirect to index
     else
-      # @mixtape did not get saved to the DB
+      # @post did not get saved to the DB
       flash[:errors] = @post.errors.full_messages # an array of error strings we can print
       # redirect_to new_post_path
       # Render a *different* action's template (new instead of create)
