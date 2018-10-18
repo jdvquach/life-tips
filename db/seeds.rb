@@ -1,3 +1,8 @@
+Comment.destroy_all
+Post.destroy_all
+Category.destroy_all
+User.destroy_all
+
 Category.create!([
   {name: "Pet", image: nil},
   {name: "Household", image: nil},
