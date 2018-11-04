@@ -62,6 +62,7 @@ gem 'jquery-rails'
 
 gem 'cloudinary'
 gem 'bootstrap', '~> 4.1.3'
+gem 'httparty'
 
 # Below added for Heroku
 gem 'rails_12factor'

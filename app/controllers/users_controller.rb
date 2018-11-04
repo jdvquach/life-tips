@@ -37,10 +37,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+    redirect_to root_path unless @user.id == @current_user.id
   end
 
   def update
+
     @user = User.find params[:id]   # route is PATCH "/members/:id", so we have the ID in params
+
+
     @user.update user_params
     if params[:file].present?
       response= Cloudinary::Uploader.upload params[:file]
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
       @user.save
     end
     redirect_to user_path(@user.id)
+
   end
 
   def destroy
