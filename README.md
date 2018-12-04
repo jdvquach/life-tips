@@ -30,14 +30,15 @@ User can post a tip or trick under various categories.
 
 ## Play the game:
 
-https://lifetips.herokuapp.com/login
+https://lifetips.herokuapp.com
 
 ## Technology Stack:
 
 * Ruby on Rails
 * CSS
 * HTML
-* Bootstrap
+* APIs
+* JavaScript
 
 
 ## Note/Issues:
